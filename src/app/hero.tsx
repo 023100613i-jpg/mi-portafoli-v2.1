@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import Image from "next/image";
 
 export default function Hero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -69,16 +68,20 @@ export default function Hero() {
             </div>
 
             <div className="hero-image">
-              <div style={{ position: "relative", width: "100%", maxWidth: "400px", margin: "0 auto" }}>
-                <Image
-                  src="/image/foto-perfil.jpg"
-                  alt="Foto de perfil"
-                  width={400}
-                  height={400}
-                  style={{ borderRadius: "1rem", objectFit: "cover" }}
-                  unoptimized
-                />
-              </div>
+              <img 
+                src="/image/foto-perfil.jpg" 
+                alt="Foto de perfil"
+                style={{ 
+                  width: "100%", 
+                  maxWidth: "400px", 
+                  borderRadius: "1rem",
+                  boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)"
+                }}
+                onError={(e) => {
+                  console.error("Error cargando imagen:", e.target.src);
+                  e.target.src = "https://via.placeholder.com/400x400/2563eb/ffffff?text=Astrit";
+                }}
+              />
             </div>
           </div>
         </div>
