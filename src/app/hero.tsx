@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +25,6 @@ export default function Hero() {
 
   return (
     <>
-      {/* Navbar */}
       <nav className="navbar">
         <span className="navbar-brand">Mi Portafolio</span>
         <div className="nav-links">
@@ -48,26 +48,37 @@ export default function Hero() {
         )}
       </nav>
 
-      {/* Hero Section */}
       <header className="hero">
         <div className="container">
           <div className="hero-grid">
             <div className="hero-content">
               <h1 className="hero-title">
-                Hola, Soy Astrit Fernanda <br />
-                <span>Luza Grajeda</span>
+                Hola, Soy <br />
+                <span>Astrit Fernanda Luza Grajeda</span>
               </h1>
               <p className="hero-description">
-                Soy una desarrolladora web apasionada, donde la creatividad se encuentra
-                con la funcionalidad para crear experiencias digitales únicas.
+                Soy una estudiante de Ingeniería de Sistemas que está terminando su carrera. 
+                Tengo un enfoque que combina la creatividad con las mejores prácticas de 
+                desarrollo para entregar resultados excepcionales.
               </p>
+
+              <div className="cta-group">
+                <a href="#projects" className="btn-primary">Ver Proyectos</a>
+                <a href="#contact" className="btn-secondary">Contáctame</a>
+              </div>
             </div>
 
             <div className="hero-image">
-              <img 
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop&crop=center" 
-                alt="Desarrollo web"
-              />
+              <div style={{ position: "relative", width: "100%", maxWidth: "400px", margin: "0 auto" }}>
+                <Image
+                  src="/image/foto-perfil.jpg"
+                  alt="Foto de perfil"
+                  width={400}
+                  height={400}
+                  style={{ borderRadius: "1rem", objectFit: "cover" }}
+                  unoptimized
+                />
+              </div>
             </div>
           </div>
         </div>
